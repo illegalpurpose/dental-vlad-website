@@ -92,5 +92,3 @@ export default function ToothScene() {
         </Canvas>
     );
 }
-
-useGLTF.preload(MODEL_URL);
