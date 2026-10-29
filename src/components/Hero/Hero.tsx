@@ -10,12 +10,16 @@ export function Hero() {
 
     return (
         <section className={styles.hero} id="home">
-            <div className={styles.model} role="img" aria-label={t.hero.modelLabel}>
+            <div
+                className={styles.model}
+                role="img"
+                aria-label={t.hero.modelLabel}
+            >
                 <ToothViewer />
             </div>
             <h1 className={styles.logoWrap}>
                 <Image
-                    src="/logo.png"
+                    src="/dental-vlad-website/logo.png"
                     alt={t.hero.logoAlt}
                     width={2076}
                     height={496}
