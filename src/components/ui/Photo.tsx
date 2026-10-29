@@ -10,14 +10,21 @@ interface PhotoProps {
 }
 
 /** Фото с аккуратной заглушкой, пока реальное изображение не добавлено. */
-export function Photo({ src, alt, ratio = "4 / 3", className = "" }: PhotoProps) {
+export function Photo({
+    src,
+    alt,
+    ratio = "4 / 3",
+    className = "",
+}: PhotoProps) {
     return (
-        <div className={`${styles.photo} ${className}`} style={{ aspectRatio: ratio }}>
+        <div
+            className={`${styles.photo} ${className}`}
+            style={{ aspectRatio: ratio }}
+        >
             {src ? (
-                <Image
+                <img
                     src={src}
                     alt={alt}
-                    fill
                     sizes="(max-width: 900px) 100vw, 560px"
                     className={styles.image}
                 />

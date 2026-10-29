@@ -10,10 +10,19 @@
 
 .image {
     object-fit: cover;
+    width: 560px;
+    max-width: 100%;
+    height: auto;
 }
 
 .placeholder {
     width: 28%;
     max-width: 96px;
     opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .image {
+        width: 100vw;
+    }
 }

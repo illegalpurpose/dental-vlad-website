@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { ToothViewer } from "./ToothViewer";
 import styles from "./Hero.module.css";
@@ -18,12 +17,11 @@ export function Hero() {
                 <ToothViewer />
             </div>
             <h1 className={styles.logoWrap}>
-                <Image
+                <img
                     src="/dental-vlad-website/logo.png"
                     alt={t.hero.logoAlt}
                     width={2076}
                     height={496}
-                    priority
                     className={styles.logo}
                 />
             </h1>
