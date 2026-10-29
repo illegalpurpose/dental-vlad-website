@@ -1,0 +1,37 @@
+.switcher {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: 999px;
+    background: var(--blue-100);
+}
+
+.option {
+    border: 0;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--blue-700);
+    background: transparent;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.option:hover {
+    color: var(--navy-800);
+}
+
+.active,
+.active:hover {
+    background: var(--blue-600);
+    color: var(--white);
+}
+
+.option:focus-visible {
+    outline: 2px solid var(--blue-500);
+    outline-offset: 2px;
+}

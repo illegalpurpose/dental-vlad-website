@@ -1,0 +1,31 @@
+.card {
+    overflow: hidden;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.info {
+    padding: 20px 22px 24px;
+    text-align: center;
+}
+
+.name {
+    font-size: 20px;
+    color: var(--navy-800);
+}
+
+.role {
+    margin-top: 4px;
+    color: var(--blue-600);
+    font-size: 15px;
+    font-weight: 500;
+}
