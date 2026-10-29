@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
     Bounds,
     Center,
@@ -9,19 +9,31 @@ import {
     Lightformer,
     useGLTF,
 } from "@react-three/drei";
+import { KTX2Loader } from "three-stdlib";
 import type { Group } from "three";
 
-const MODEL_URL = "/dental-vlad-website/models/tooth.glb";
+const MODEL_URL = `/dental-vlad-website/models/tooth.glb`;
 
 function Tooth() {
-    const { scene } = useGLTF(MODEL_URL);
+    const { gl } = useThree();
+
+    // Передаем extendLoader для настройки декомпрессора KTX2 текстур
+    const { scene } = useGLTF(MODEL_URL, true, true, (loader) => {
+        const ktx2Loader = new KTX2Loader();
+        // Укажите точную версию three, установленную у вас в package.json (например, 0.160.0)
+        ktx2Loader.setTranscoderPath(
+            "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/libs/basis/",
+        );
+        loader.setKTX2Loader(ktx2Loader.detectSupport(gl));
+    });
+
     const group = useRef<Group>(null);
 
-    useFrame((state, delta) => {
+    useFrame((state) => {
         const g = group.current;
         if (!g) return;
 
-        // плавно влево-вправо, амплитуда ±0.6 рад (~34°), задняя сторона не видна
+        // плавно влево-вправо, амплитуда ±0.6 рад (~34°)
         const swing = Math.sin(state.clock.elapsedTime * 0.8) * 0.6;
         g.rotation.y = swing;
     });
@@ -40,7 +52,6 @@ export default function ToothScene() {
         <Canvas
             dpr={[1, 2]}
             camera={{ position: [0, 0, 6], fov: 35 }}
-            // pan-y: вертикальный скролл страницы работает и поверх 3D на телефоне
             style={{ touchAction: "pan-y" }}
             gl={{ alpha: true }}
         >
@@ -52,7 +63,6 @@ export default function ToothScene() {
                 color="#9cc2ff"
             />
 
-            {/* Локальное окружение для бликов — без загрузки внешних HDR */}
             <Environment resolution={256}>
                 <Lightformer
                     form="rect"
