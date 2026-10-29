@@ -11,7 +11,7 @@ import {
 } from "@react-three/drei";
 import type { Group } from "three";
 
-const MODEL_URL = "/models/tooth.glb";
+const MODEL_URL = "/dental-vlad-website/models/tooth.glb";
 
 function Tooth() {
     const { scene } = useGLTF(MODEL_URL);
