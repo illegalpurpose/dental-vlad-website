@@ -11,7 +11,12 @@ export default function Home() {
         <>
             <Hero />
             <Header />
-            <main>
+            <main
+                style={{
+                    position: "relative",
+                    zIndex: 2,
+                }}
+            >
                 <About />
                 <Services />
                 <Specialists />

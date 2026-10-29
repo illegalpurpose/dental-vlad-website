@@ -1,12 +1,19 @@
 .hero {
-    position: relative;
     display: flex;
     flex-direction: column;
     height: 100svh;
     min-height: 560px;
-    background:
-        radial-gradient(ellipse at 50% 38%, #5a9dff 0%, #2f74f0 42%, #1746b0 100%);
+    background: radial-gradient(
+        ellipse at 50% 38%,
+        #5a9dff 0%,
+        #2f74f0 42%,
+        #1746b0 100%
+    );
     overflow: hidden;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 /* Модель занимает почти весь экран */
