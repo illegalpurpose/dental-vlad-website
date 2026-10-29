@@ -19,7 +19,7 @@ export function Hero() {
             </div>
             <h1 className={styles.logoWrap}>
                 <Image
-                    src="./logo.png"
+                    src="/dental-vlad-website/logo.png"
                     alt={t.hero.logoAlt}
                     width={2076}
                     height={496}

@@ -36,7 +36,8 @@ export const SPECIALIST_PHOTOS: Partial<Record<SpecialistId, string>> = {
 };
 
 /** Фото клиники для секции «О нас», например "/images/clinic.jpg". */
-export const CLINIC_PHOTO: string | undefined = "./images/clinic.jpg";
+export const CLINIC_PHOTO: string | undefined =
+    "/dental-vlad-website/images/clinic.jpg";
 
 /** TODO: заменить на реальные контакты клиники. */
 export const CONTACTS = {
